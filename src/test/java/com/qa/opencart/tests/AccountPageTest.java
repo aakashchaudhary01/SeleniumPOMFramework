@@ -2,6 +2,8 @@ package com.qa.opencart.tests;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -12,6 +14,7 @@ import com.qa.opencart.utils.ErrorHandler;
 
 public class AccountPageTest extends BaseTest {
 	
+	Logger logger = LogManager.getLogger(AccountPageTest.class);
 	
 	@BeforeClass
 	public void acctSetUp() {
@@ -23,6 +26,8 @@ public class AccountPageTest extends BaseTest {
 		String acctPageTitle = acctPage.getAcctHomePageTitle();
 		Assert.assertEquals(acctPageTitle, Constants.ACCT_PAGE_TITLE);
 		
+		logger.info("Testing");
+		logger.error("testing error logs");
 	}
 
 	@Test(priority = 2)

@@ -21,6 +21,7 @@ public class RegisterPage {
 	
 	private By succesMsg = By.xpath("//div[@id='content']/h1");
 	private By logoutBtn = By.xpath("//div[@class='list-group']/a[text()='Logout']");
+	private By registerLink = By.linkText("Register");
 	
 	public RegisterPage(WebDriver driver) {
 		this.driver = driver;
@@ -44,6 +45,9 @@ public class RegisterPage {
 		
 		if(msg.contains("Your Account Has Been Created!")) {
 			System.out.println(msg);
+			
+			elementUtil.doClick(logoutBtn);
+			elementUtil.doClick(registerLink);
 			return true;
 		}
 		else {
